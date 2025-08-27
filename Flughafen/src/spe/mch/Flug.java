@@ -139,9 +139,29 @@ public class Flug {
 		return summe;
 	}
 	
+	public int anzahlFreiePlaetze() {
+		int freiePlaetze = 300;
+		return freiePlaetze - anzahlGaeste();
+	}
 	
+	public boolean starten() {
+		System.out.println("Flug startet");
+		return true;
+	}
+	
+	public boolean checkFlug() {	// muss noch gemacht werden
+		System.out.println("Hallpo");
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Flug [startzeit=" + startzeit + ", landezeit=" + landezeit + ", startflughafen=" + startflughafen
+				+ ", zielflughafen=" + zielflughafen + ", flugzeug=" + flugzeug + ", piloten=" + piloten
+				+ ", flugbegleiter=" + flugbegleiter + ", fluggaeste=" + fluggaeste + "]";
+	}
 	
 	
 	
 }
+
 
