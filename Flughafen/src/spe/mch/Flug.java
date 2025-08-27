@@ -14,7 +14,12 @@ public class Flug {
 	private ArrayList<Flugbegleiter> flugbegleiter;
 	private ArrayList<Fluggast> fluggaeste;
 	
-	
+	public ArrayList<Fluggast> getFluggaeste() {
+		return fluggaeste;
+	}
+	public void setFluggaeste(ArrayList<Fluggast> fluggaeste) {
+		this.fluggaeste = fluggaeste;
+	}
 	public Flug(LocalDateTime startzeit, LocalDateTime landezeit, String startflughafen, String zielflughafen) {
 		super();
 		this.startzeit = startzeit;
@@ -23,6 +28,71 @@ public class Flug {
 		this.zielflughafen = zielflughafen;
 	}
 	public Flug() {}
+	
+	public LocalDateTime getStartzeit() {
+		return startzeit;
+	}
+	public void setStartzeit(LocalDateTime startzeit) {
+		this.startzeit = startzeit;
+	}
+	public LocalDateTime getLandezeit() {
+		return landezeit;
+	}
+	public void setLandezeit(LocalDateTime landezeit) {
+		this.landezeit = landezeit;
+	}
+	public String getStartflughafen() {
+		return startflughafen;
+	}
+	public void setStartflughafen(String startflughafen) {
+		this.startflughafen = startflughafen;
+	}
+	public String getZielflughafen() {
+		return zielflughafen;
+	}
+	public void setZielflughafen(String zielflughafen) {
+		this.zielflughafen = zielflughafen;
+	}
+	public Flugzeug getFlugzeug() {
+		return flugzeug;
+	}
+	public void setFlugzeug(Flugzeug flugzeug) {
+		this.flugzeug = flugzeug;
+	}
+	public ArrayList<Pilot> getPiloten() {
+		return piloten;
+	}
+	public void setPiloten(ArrayList<Pilot> piloten) {
+		this.piloten = piloten;
+	}
+	public ArrayList<Flugbegleiter> getFlugbegleiter() {
+		return flugbegleiter;
+	}
+	public void setFlugbegleiter(ArrayList<Flugbegleiter> flugbegleiter) {
+		this.flugbegleiter = flugbegleiter;
+	}
+	
+	public boolean addPilot(Pilot pilot) {
+		if(piloten.size()<2) {
+			return true;
+			piloten.add(pilot);
+		} else {
+			System.out.println("Pilot konnte nicht hinzugefuegt werden, da bereits 2 vorhanden sind");
+			return false;
+			
+		}
+	}
+	
+	public boolean deletePilot(Pilot pilot) {
+		if (piloten.size()>0) {
+			piloten.remove(pilot);
+			return true;
+		} else {
+			System.out.println("Vorgang nicht moeglich, es gibt keine Piloten zum Entfernen");
+			return false;
+		}
+	}
+
 	
 	
 	
