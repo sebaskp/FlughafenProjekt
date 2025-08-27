@@ -10,7 +10,7 @@ public class Fluggast extends Person{
 		
 	}
 	public Fluggast() {}
-	public Flugklasse getKlasse() {
+	public String getKlasse() {
 		return klasse;
 	}
 
