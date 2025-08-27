@@ -53,7 +53,8 @@ public class Flugzeug implements Serializable{
 	}
 	
 	public boolean istTankVoll() {
-		}
-		return System.out.println(tankVoll);
-		
+	
+		return tankVoll;	
+}
+	
 }
