@@ -12,7 +12,8 @@ public class Flug {
 	private Flugzeug flugzeug;
 	private ArrayList<Pilot> piloten;
 	private ArrayList<Flugbegleiter> flugbegleiter;
-	private ArrayList<Fluggast> fluggaeste;
+	private ArrayList<Fluggast> fluggaeste=new ArrayList<Fluggast>();
+	
 	
 	public ArrayList<Fluggast> getFluggaeste() {
 		return fluggaeste;
