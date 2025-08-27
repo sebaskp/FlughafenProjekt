@@ -93,9 +93,54 @@ public class Flug {
 		}
 	}
 
+	public boolean addFluggast(Fluggast fluggast) {
+		if (this.fluggaeste.size() < 300){
+			fluggaeste.add(fluggast);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean deleteFluggast(Fluggast fluggast) {
+		if(this.fluggaeste.size()<1) {
+			fluggaeste.remove(fluggast);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	 
+	public boolean addFlugbegleiter(Flugbegleiter flugbegleiter) {
+		if (this.flugbegleiter.size() <3) {
+			this.flugbegleiter.add(flugbegleiter);
+			return true;
+		} else {
+			System.out.println("Vorgang nicht moglich, maximaler Anzahl erreicht");return false;
+		}
+	}
+	
+	public boolean deleteFlugbegleiter(Flugbegleiter flugbegleiter) {
+		if (this.flugbegleiter.size()>0) {
+			this.flugbegleiter.remove(flugbegleiter);
+			return true;
+		} else {
+			System.out.println("Flugbegleiter kann nicht entfernt werden, da keine vorhanden sind");
+			return false;
+		}
+	}
+	
+	public int anzahlGaeste() {
+		int summe = 0;
+		for (Fluggast a : fluggaeste) {
+			summe += 1;
+		} 
+		return summe;
+	}
 	
 	
 	
 	
 	
 }
+
