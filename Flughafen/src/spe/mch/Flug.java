@@ -5,15 +5,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Flug implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	private LocalDateTime startzeit;
 	private LocalDateTime landezeit;
 	private String startflughafen;
 	private String zielflughafen;
 	private Flugzeug flugzeug;
-	private ArrayList<Pilot> piloten;
-	private ArrayList<Flugbegleiter> flugbegleiter;
-	private ArrayList<Fluggast> fluggaeste;
+	private ArrayList<Pilot> piloten = new ArrayList<>();
+	private ArrayList<Flugbegleiter> flugbegleiter = new ArrayList<>();
+	private ArrayList<Fluggast> fluggaeste=new ArrayList<>();
 	
 	public ArrayList<Fluggast> getFluggaeste() {
 		return fluggaeste;
@@ -94,8 +95,10 @@ public class Flug implements Serializable {
 		}
 	}
 	
-	public boolean addFluggast(Fluggast fluggast) {
-		if (this.fluggaeste.size() < 300 && (!this.fluggaeste.contains(fluggast)) ){
+	public boolean addFluggast(Fluggast fluggast, Flugzeug f) {
+		
+//		if (this.fluggaeste.size() < f.getAnzahlPlaetze() && (!this.fluggaeste.contains(fluggast)) ){
+			if (this.fluggaeste.size() < f.getAnzahlPlaetze() ){
 			fluggaeste.add(fluggast);
 			return true;
 		} else {
@@ -144,9 +147,14 @@ public class Flug implements Serializable {
 		return freiePlaetze - anzahlGaeste();
 	}
 	
-	public boolean starten() {
+	public boolean starten(Flugzeug f) {
+		if(piloten.size()==2 && f.istTankVoll() == true) {
 		System.out.println("Flug startet");
-		return true;
+		return true;} else {
+			
+			System.out.println("Flug startet nicht");
+			return false;
+		}
 	}
 	
 	public boolean checkFlug() {	// muss noch gemacht werden
@@ -159,7 +167,10 @@ public class Flug implements Serializable {
 				+ ", zielflughafen=" + zielflughafen + ", flugzeug=" + flugzeug + ", piloten=" + piloten
 				+ ", flugbegleiter=" + flugbegleiter + ", fluggaeste=" + fluggaeste + "]";
 	}
-	
+	public static void ausgabeGaeste(ArrayList<Fluggast>s) {
+		System.out.println(s);
+		
+	}
 	
 	
 }

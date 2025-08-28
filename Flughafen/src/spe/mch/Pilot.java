@@ -4,6 +4,11 @@ import java.util.Objects;
 
 public class Pilot extends Person {
 
+	public Pilot(String vorname, String nachname, boolean kapitaen) {
+		super(vorname, nachname);
+		this.kapitaen = kapitaen;
+	}
+
 	private boolean kapitaen;
 
 	public Pilot(boolean kapitaen) {

@@ -3,20 +3,21 @@ package spe.mch;
 import java.util.Objects;
 
 public class Fluggast extends Person{
-   private String klasse; 
+   private Flugklasse klasse; 
    
-	public Fluggast(String vorname, String nachname,String klasse) {
-		super(vorname, nachname);
+	public Fluggast(String vorname, String nachname, Flugklasse klasse) {
+	super(vorname, nachname);
+	this.klasse = klasse;
+}
+	public Fluggast(Object importFluggaeste) {
 		
 	}
-	public Fluggast() {}
-	public String getKlasse() {
+	public Flugklasse getKlasse() {
 		return klasse;
 	}
-
-	public void setKlasse(String klasse) {
+	public void setKlasse(Flugklasse klasse) {
 		this.klasse = klasse;
-	} 
+	}
 	@Override
 	public String toString() {
 		return super.toString() + "Fluggast [klasse=" + klasse + "]";
