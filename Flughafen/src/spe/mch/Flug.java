@@ -1,9 +1,10 @@
 package spe.mch;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Flug {
+public class Flug implements Serializable {
 
 	private LocalDateTime startzeit;
 	private LocalDateTime landezeit;
@@ -12,8 +13,7 @@ public class Flug {
 	private Flugzeug flugzeug;
 	private ArrayList<Pilot> piloten;
 	private ArrayList<Flugbegleiter> flugbegleiter;
-	private ArrayList<Fluggast> fluggaeste=new ArrayList<Fluggast>();
-	
+	private ArrayList<Fluggast> fluggaeste;
 	
 	public ArrayList<Fluggast> getFluggaeste() {
 		return fluggaeste;
@@ -74,7 +74,7 @@ public class Flug {
 	}
 	
 	public boolean addPilot(Pilot pilot) {
-		if(piloten.size()<2) {
+		if(piloten.size()<2 && (!this.piloten.contains(pilot))) {
 			piloten.add(pilot);
 			return true;
 		} else {
@@ -85,7 +85,7 @@ public class Flug {
 	}
 	
 	public boolean deletePilot(Pilot pilot) {
-		if (piloten.size()>0) {
+		if (piloten.size()>0 && (this.piloten.contains(pilot))) {
 			piloten.remove(pilot);
 			return true;
 		} else {
@@ -93,9 +93,9 @@ public class Flug {
 			return false;
 		}
 	}
-
+	
 	public boolean addFluggast(Fluggast fluggast) {
-		if (this.fluggaeste.size() < 300){
+		if (this.fluggaeste.size() < 300 && (!this.fluggaeste.contains(fluggast)) ){
 			fluggaeste.add(fluggast);
 			return true;
 		} else {
@@ -104,7 +104,7 @@ public class Flug {
 	}
 
 	public boolean deleteFluggast(Fluggast fluggast) {
-		if(this.fluggaeste.size()<1) {
+		if(this.fluggaeste.size()<1 && (this.fluggaeste.contains(fluggast))) {
 			fluggaeste.remove(fluggast);
 			return true;
 		} else {
@@ -113,16 +113,16 @@ public class Flug {
 	}
 	 
 	public boolean addFlugbegleiter(Flugbegleiter flugbegleiter) {
-		if (this.flugbegleiter.size() <3) {
-			this.flugbegleiter.add(flugbegleiter);
-			return true;
+		if (this.flugbegleiter.size() <3 && (!this.flugbegleiter.contains(flugbegleiter))) {
+			return this.flugbegleiter.add(flugbegleiter);
+		
 		} else {
 			System.out.println("Vorgang nicht moglich, maximaler Anzahl erreicht");return false;
 		}
 	}
 	
 	public boolean deleteFlugbegleiter(Flugbegleiter flugbegleiter) {
-		if (this.flugbegleiter.size()>0) {
+		if (this.flugbegleiter.size()>0 && (this.flugbegleiter.contains(flugbegleiter))) {
 			this.flugbegleiter.remove(flugbegleiter);
 			return true;
 		} else {
@@ -163,5 +163,3 @@ public class Flug {
 	
 	
 }
-
-
